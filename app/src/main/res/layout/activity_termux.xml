@@ -109,5 +109,12 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/transparent" />
+    <WebView
+        android:id="@+id/ide_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
 
 </com.termux.app.terminal.TermuxActivityRootView>
