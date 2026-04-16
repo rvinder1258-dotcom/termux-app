@@ -1,5 +1,9 @@
 package com.termux.app;
 
+import android.webkit.WebView;
+import android.webkit.WebSettings;
+import android.webkit.WebViewClient;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
@@ -214,6 +218,24 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_termux);
+            super.onCreate(savedInstanceState);
+
+    setContentView(R.layout.activity_termux);
+
+    // --- YOUR CUSTOM IDE CODE STARTS HERE ---
+    WebView ideWebView = findViewById(R.id.ide_webview);
+    if (ideWebView != null) {
+        WebSettings webSettings = ideWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        ideWebView.setWebViewClient(new WebViewClient());
+        ideWebView.loadUrl("http://127.0.0.1:8080");
+    }
+    // --- YOUR CUSTOM IDE CODE ENDS HERE ---
+
+    // Load termux shared preferences
+    // This will also fail if...
+
 
         // Load termux shared preferences
         // This will also fail if TermuxConstants.TERMUX_PACKAGE_NAME does not equal applicationId
